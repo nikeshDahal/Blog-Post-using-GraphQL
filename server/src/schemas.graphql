@@ -1,0 +1,80 @@
+# step1 define types 
+type Query{
+    getAllUsers(query:String):[User!]!
+    getAllPosts(query:String):[Post!]!
+    getAllComments(query:String):[Comment!]
+    me:User!
+    post:Post!
+}
+type User{
+    _id:ID!
+    name:String!
+    email:String!
+    age:Int!
+    post:[Post!]
+    comments:[Comment!]
+}
+type Post{
+    _id:ID!
+    title: String!
+    body: String!
+    published: Boolean!
+    author: User!
+    comments:[Comment!] 
+}
+type  Comment{
+    _id:ID!
+    text:String!
+    commentedBy: User!
+    post: Post!
+}
+type Mutation{
+    createUser(data:createUserInput!):User!
+    deleteUser(id:ID!):User!
+    updateUser(id:ID!,data:updateUserInput):User!
+    createPost(data:createPostInput!):Post!
+    deletePost(id:ID!):Post!
+    updatePost(id:ID!,data:updatePostInput):Post!
+    createComment(data:createCommentInput!):Comment!
+    updateComment(id:ID!,data:updateCommentInput):Comment!
+}
+input updateCommentInput {
+    text:String
+}
+input updatePostInput {
+    title: String
+    body: String
+    published: Boolean
+}
+input updateUserInput {
+    name:String
+    email:String
+    age:Int
+}
+input createUserInput{
+    name:String!,
+    email:String!
+    age:Int
+}
+input createPostInput{
+    title:String!
+    body:String! 
+    published:Boolean! 
+    author:ID!   
+}
+input createCommentInput{
+    text:String! 
+    commentedBy:ID!  
+    post:ID!
+}
+
+type Subscription {
+    count:Int!
+    comment(postId:String!):Comment!
+    post:PostSubscriptionPayload!
+}
+
+type PostSubscriptionPayload {
+    mutation:String!
+    data:Post!
+}

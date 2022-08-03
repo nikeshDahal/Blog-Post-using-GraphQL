@@ -1,0 +1,65 @@
+h3,h5{
+    color: rgb(27, 22, 70);
+    text-align: center;
+}
+.card {
+    width: 400px;
+    background: rgb(227, 227, 250);
+    border: 1px solid #dddfe2;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    border-radius: 8px;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+ .card input {
+    border-radius: 8px;
+    border: 2px solid #dddfe2;
+    outline: none;
+    color: #1d2129;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.75rem;
+    width: 92%;
+    font-size: 1rem;
+}
+
+.card label {
+    display: block;
+    font-weight: bold;
+    margin-right: 0.50rem;
+}
+
+.formItems{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card input input{
+    font: inherit;
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 0.15rem;
+    margin-bottom: 0.5rem;
+}
+
+.card input:focus {
+    outline: none;
+    border-color: #4f005f;
+} 
+
+.card button{
+    background: #5f4eff;
+    border: 1px solid #ffffff;
+    color: #fff;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
