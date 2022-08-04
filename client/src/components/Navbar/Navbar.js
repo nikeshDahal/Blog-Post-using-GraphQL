@@ -10,28 +10,28 @@ const Navbar = () => {
           <ul>
             <li>
               <NavLink
-                to="/Create-User"
+                to="/User"
                 className={({ isActive }) => (isActive ? classes.active : "")}
               >
-                Create-User
+                User
               </NavLink>
             </li>
 
             <li>
               <NavLink
-                to="/Create-Post"
+                to="/Post"
                 className={({ isActive }) => (isActive ? classes.active : "")}
               >
-                Create-Post
+                Post
               </NavLink>
             </li>
 
             <li>
               <NavLink
-                to="/Create-comment"
+                to="comment"
                 className={({ isActive }) => (isActive ? classes.active : "")}
               >
-                Create-Comment
+                Comment
               </NavLink>
             </li>
             

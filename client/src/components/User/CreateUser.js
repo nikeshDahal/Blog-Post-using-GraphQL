@@ -1,6 +1,6 @@
 import classes from "./CreateUser.module.css";
 import { useState } from "react";
-const CreateUser = () => {
+const CreateUser = ({title,action}) => {
     const[enteredName,setEnteredName]=useState('')
     const[enteredEmail,setEnteredEmail]=useState('')
     const[enteredAge,setEnteredAge]=useState('')
@@ -41,11 +41,12 @@ const CreateUser = () => {
     console.log(event.target.value);
     setEnteredAge(event.target.value);
     setError('')
+    console.log("title",title)
   };
 
   return (
     <div className={classes.cardWrapper}>
-      <h3 >Create User</h3>
+      <h3 >create user</h3>
       <h5>{error ? error.message:"welcome"}</h5>
       <div className={classes.card}>
         <form onSubmit={submitButtonHandler}>
