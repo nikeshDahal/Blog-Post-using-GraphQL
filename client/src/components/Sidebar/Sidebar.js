@@ -8,13 +8,21 @@ const Sidebar = () =>{
     //     }
     //     console.log(obj)
     // }
+    const deleteHandler =(event)=>{
+        console.log(event)
+        return(
+            <div>
+            <CreateUser/>
+            </div>
+        )
+    }
     return(
         <div className={classes.sidebarWrapper}>
         <div className={classes.sidebar}>
         <ul>
         {/*<li><button onClick={onClickHandler}>Create</button></li>*/}
         <li><button >Update</button></li>
-        <li><button>Delete</button></li>
+        <li><button onClick={deleteHandler}>Delete</button></li>
         <li><button>Fetch</button></li>
         </ul>
         </div>
