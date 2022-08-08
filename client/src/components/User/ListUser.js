@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const ListUser = () => {
   const { error, loading, data } = useQuery(LOAD_USERS);
   const [users, setUsers] = useState([]);
+
   useEffect(() => {
     if (data) {
       console.log(data);
@@ -22,7 +23,7 @@ const ListUser = () => {
           return (
             <div>
               <li key={user._id}>
-                {` name : ${user.name} , email : ${user.email} , age : ${user.age}`}
+                {` ID:${user._id} name : ${user.name} , email : ${user.email} , age : ${user.age}`}
               </li>
             </div>
           );

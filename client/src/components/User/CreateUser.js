@@ -8,7 +8,9 @@ const CreateUser = () => {
   const [email, setEmail] = useState("");
   const [age, setAge] = useState(0);
   const [error, setError] = useState("");
-  const [createUser, { errorfromCreateUserMutation }] = useMutation(CREATE_USER_MUTATION);
+  const [click, setClick] = useState(false);
+  const [createUser, { errorfromCreateUserMutation }] =
+    useMutation(CREATE_USER_MUTATION);
   const submitButtonHandler = (event) => {
     event.preventDefault();
     console.log("clicked");
@@ -19,7 +21,7 @@ const CreateUser = () => {
       });
       return;
     }
-   
+
     createUser({
       variables: {
         name: name,
@@ -34,7 +36,10 @@ const CreateUser = () => {
     setEmail("");
     setAge("");
   };
-  
+  const ListUserButtonHandler = () => {
+    console.log("clicked");
+    setClick(true);
+  };
 
   const userNameHandler = (event) => {
     console.log(event.target.value);
@@ -91,8 +96,9 @@ const CreateUser = () => {
         </div>
       </div>
       <div>
-      <ListUser/>
+        <button className={classes.list_user_button} onClick={ListUserButtonHandler}> List User</button>
       </div>
+      <div>{click?<ListUser/>:'want to see user-List ??'}</div>
     </div>
   );
 };
