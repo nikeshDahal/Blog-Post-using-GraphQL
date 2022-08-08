@@ -9,9 +9,12 @@ query{
     post{
       _id
       title
+      body
       author{
         _id
         name
+        email
+        age
       }
     }
     comments{

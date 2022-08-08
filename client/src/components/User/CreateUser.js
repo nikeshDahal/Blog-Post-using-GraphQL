@@ -1,7 +1,7 @@
 import ListUser from "./ListUser";
 import classes from "./CreateUser.module.css";
 import { useEffect, useState } from "react";
-import { CREATE_USER_MUTATION } from "../../GraphQL/Mutation";
+import { CREATE_USER_MUTATION} from "../../GraphQL/Mutations/CreateUserMutation";
 import { useMutation } from "@apollo/client";
 const CreateUser = () => {
   const [name, setName] = useState("");

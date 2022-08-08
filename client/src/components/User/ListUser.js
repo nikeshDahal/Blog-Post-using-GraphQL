@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
-import { LOAD_USERS } from "../../GraphQL/Query";
+import { LOAD_USERS } from "../../GraphQL/Query/QueryUsers";
 import { useEffect, useState } from "react";
 
 const ListUser = () => {
@@ -17,28 +17,47 @@ const ListUser = () => {
   return (
     <div>
       <h3>list of users are</h3>
-      <ul>
+      <ol>
         <span>Details of users :</span>
         {users.map((user) => {
           return (
             <div>
               <li key={user._id}>
-                {` ID:${user._id} name : ${user.name} , email : ${user.email} , age : ${user.age}`}
+                {` ID:${user._id} `}
+                <br />
+                {`name : ${user.name} `}
+                <br />
+                {`email : ${user.email} `}
+                <br />
+                {`age : ${user.age}`}
+                <br />
+                {`Posts done by ${user.name} are :-`}
+                <br />
+                <ol>
+                {
+                  user.post.map((postItem) => {
+                    if (postItem.author.name === user.name) {
+                      return (
+                        <div>
+                          <li>
+                          {`title : ${postItem.title}`}
+                          <br/>
+                          {`body : ${postItem.body}`}
+                          <br/>
+                          </li> 
+                        </div>
+                          
+                      );
+                    }
+                  })
+                }
+                </ol>
+                <hr />
               </li>
             </div>
           );
         })}
-        <span>Posts done by users:</span>
-        {users.map((user) => {
-          return (
-            <div>
-              <li key={user._id}>
-                {`title:${user.post.map((post) => `${post.title} posted by : ${post.author.name} ,`)}`}
-              </li>
-            </div>
-          );
-        })}
-      </ul>
+      </ol>
     </div>
   );
 };
